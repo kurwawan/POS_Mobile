@@ -8,10 +8,10 @@
     android:orientation="vertical"
     tools:context="com.example.kurwawan.posphone.MainActivity">
 
-    <ListView
-        android:id="@+id/lv_kasir"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list_kasir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </ListView>
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
