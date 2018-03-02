@@ -1,15 +1,15 @@
-package com.example.kurwawan.posphone;
+package com.example.kurwawan.posphone.View;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.kurwawan.posphone.MenuUtamaActivity;
+import com.example.kurwawan.posphone.R;
 
 public class LoginActivity extends AppCompatActivity {
 
