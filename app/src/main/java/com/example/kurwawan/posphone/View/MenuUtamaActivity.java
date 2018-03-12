@@ -1,4 +1,4 @@
-package com.example.kurwawan.posphone;
+package com.example.kurwawan.posphone.View;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,15 +10,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.kurwawan.posphone.View.MainActivity;
-import com.example.kurwawan.posphone.View.OrderFragment;
-import com.example.kurwawan.posphone.View.RiwayatFragment;
-
-import java.util.List;
+import com.example.kurwawan.posphone.R;
+import com.example.kurwawan.posphone.View.View_Order.OrderFragment;
 
 public class MenuUtamaActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

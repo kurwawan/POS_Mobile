@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.kurwawan.posphone.MenuUtamaActivity;
 import com.example.kurwawan.posphone.View.LoginActivity;
 import com.example.kurwawan.posphone.Model.Kasir;
 import com.example.kurwawan.posphone.R;

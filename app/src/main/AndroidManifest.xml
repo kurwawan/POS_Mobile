@@ -27,15 +27,10 @@
         </activity>
 
         <activity
-            android:name=".MenuUtamaActivity"
+            android:name=".View.MenuUtamaActivity"
             android:label="@string/title_activity_menu_utama"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".RincianOrderActivity">
-            <!--<meta-data-->
-                <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value=".View.MenuUtamaActivity" />-->
-        </activity>
     </application>
 
 </manifest>

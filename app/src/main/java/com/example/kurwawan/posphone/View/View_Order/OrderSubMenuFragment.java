@@ -1,4 +1,4 @@
-package com.example.kurwawan.posphone;
+package com.example.kurwawan.posphone.View.View_Order;
 
 
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.kurwawan.posphone.Adapter.ProdukAdapter;
 import com.example.kurwawan.posphone.Model.Produk;
-import com.example.kurwawan.posphone.View.OrderFragment;
+import com.example.kurwawan.posphone.R;
 
 import java.util.ArrayList;
 

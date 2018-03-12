@@ -1,4 +1,4 @@
-package com.example.kurwawan.posphone.View;
+package com.example.kurwawan.posphone.View.View_Order;
 
 
 import android.content.Context;
@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.kurwawan.posphone.MenuUtamaActivity;
-import com.example.kurwawan.posphone.OrderMenuFragment;
-import com.example.kurwawan.posphone.OrderSubMenuFragment;
+import com.example.kurwawan.posphone.View.MenuUtamaActivity;
+import com.example.kurwawan.posphone.View.View_Order.OrderMenuFragment;
+import com.example.kurwawan.posphone.View.View_Order.OrderSubMenuFragment;
 import com.example.kurwawan.posphone.R;
-import com.example.kurwawan.posphone.RincianOrderActivity;
 
 
 /**
@@ -71,8 +68,8 @@ public class OrderFragment extends Fragment {
         btnRincianOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), RincianOrderActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), RincianOrderActivity.class);
+//                startActivity(intent);
             }
         });
 

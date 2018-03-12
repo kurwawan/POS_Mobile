@@ -1,8 +1,5 @@
 package com.example.kurwawan.posphone.Adapter;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
-import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,8 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kurwawan.posphone.Model.Produk;
-import com.example.kurwawan.posphone.OrderMenuFragment;
-import com.example.kurwawan.posphone.OrderSubMenuFragment;
 import com.example.kurwawan.posphone.R;
 
 import java.util.ArrayList;

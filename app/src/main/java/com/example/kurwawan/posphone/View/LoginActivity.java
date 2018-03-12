@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.kurwawan.posphone.MenuUtamaActivity;
 import com.example.kurwawan.posphone.R;
 
 public class LoginActivity extends AppCompatActivity {

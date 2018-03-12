@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.kurwawan.posphone.View.OrderFragment">
+    tools:context="com.example.kurwawan.posphone.View.View_Order.OrderFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
