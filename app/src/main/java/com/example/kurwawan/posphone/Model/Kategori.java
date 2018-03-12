@@ -8,6 +8,10 @@ public class Kategori {
     private String id;
     private String kategoriProduk;
 
+    public Kategori() {
+
+    }
+
     public Kategori(String kategoriProduk) {
         this.kategoriProduk = kategoriProduk;
     }

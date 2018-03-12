@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
         KasirAdapter kasirAdapter = new KasirAdapter(kasirList, MainActivity.this);
         rvKasir.setAdapter(kasirAdapter);
+
+
     }
 
     @Override

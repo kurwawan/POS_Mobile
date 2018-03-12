@@ -1,15 +1,25 @@
 package com.example.kurwawan.posphone.Adapter;
 
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebViewFragment;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kurwawan.posphone.Model.Kategori;
+import com.example.kurwawan.posphone.OrderMenuFragment;
+import com.example.kurwawan.posphone.OrderSubMenuFragment;
 import com.example.kurwawan.posphone.R;
+import com.example.kurwawan.posphone.View.OrderFragment;
 
 import java.util.ArrayList;
 
@@ -17,14 +27,22 @@ import java.util.ArrayList;
  * Created by zerotohero on 01/03/18.
  */
 
-public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.KategoriViewHolder> {
+public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.KategoriViewHolder>{
 
     private ArrayList<Kategori> kategoriList;
     private Context context;
 
-    public KategoriAdapter(ArrayList<Kategori> kategoriList, Context context) {
+    public interface KategoriListener{
+        //ini 1
+        void goToProduk(int pos, String word);
+    }
+
+    private KategoriListener mListener;
+
+    public KategoriAdapter(ArrayList<Kategori> kategoriList, Context context, KategoriListener listener) {
         this.kategoriList = kategoriList;
         this.context = context;
+        mListener = listener;
     }
 
     @Override
@@ -35,13 +53,14 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.Katego
     }
 
     @Override
-    public void onBindViewHolder(KategoriAdapter.KategoriViewHolder holder, int position) {
+    public void onBindViewHolder(final KategoriAdapter.KategoriViewHolder holder, final int position) {
         holder.tvKategori.setText(kategoriList.get(position).getKategoriProduk());
 
         holder.cvKategori.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //ini 2
+                mListener.goToProduk(position, kategoriList.get(position).getKategoriProduk());
             }
         });
     }

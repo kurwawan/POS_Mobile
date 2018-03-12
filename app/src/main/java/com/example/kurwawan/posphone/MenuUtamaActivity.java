@@ -2,26 +2,28 @@ package com.example.kurwawan.posphone;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 
 import com.example.kurwawan.posphone.View.MainActivity;
+import com.example.kurwawan.posphone.View.OrderFragment;
+import com.example.kurwawan.posphone.View.RiwayatFragment;
+
+import java.util.List;
 
 public class MenuUtamaActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +35,10 @@ public class MenuUtamaActivity extends AppCompatActivity
 
 
         //TODO : Default tampilan awal order
+        id = R.id.nav_order;
         OrderFragment orderFragment = new OrderFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frameLayout, orderFragment);
+        fragmentTransaction.replace(R.id.frameLayout, orderFragment, "order");
         fragmentTransaction.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -51,13 +54,20 @@ public class MenuUtamaActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true);
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
+        //moveTaskToBack(true);
+       DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else if(id == R.id.nav_order){
+            Fragment fragment = getSupportFragmentManager().findFragmentByTag("order");
+                if (((OrderFragment) fragment).hasSubMenu()) {
+                    ((OrderFragment) fragment).popChildStack();
+                }
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 
     @Override
@@ -86,12 +96,12 @@ public class MenuUtamaActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        id = item.getItemId();
 
         if (id == R.id.nav_order) {
             OrderFragment orderFragment = new OrderFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.frameLayout, orderFragment);
+            fragmentTransaction.replace(R.id.frameLayout, orderFragment,"order");
             fragmentTransaction.commit();
         } else if (id == R.id.nav_riwayat) {
             RiwayatFragment riwayatFragment = new RiwayatFragment();

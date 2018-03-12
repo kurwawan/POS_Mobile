@@ -1,37 +1,41 @@
-package com.example.kurwawan.posphone;
+package com.example.kurwawan.posphone.View;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.kurwawan.posphone.Adapter.KategoriAdapter;
-import com.example.kurwawan.posphone.Model.Kategori;
-
-import java.util.ArrayList;
+import com.example.kurwawan.posphone.MenuUtamaActivity;
+import com.example.kurwawan.posphone.OrderMenuFragment;
+import com.example.kurwawan.posphone.OrderSubMenuFragment;
+import com.example.kurwawan.posphone.R;
+import com.example.kurwawan.posphone.RincianOrderActivity;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class OrderFragment extends Fragment {
-
-    TextView tvKategori;
-    RecyclerView rvKategori;
     EditText etSearchProduk;
+    TextView tvTotHarga;
 
-    ArrayList<Kategori> kategoriList;
+    int totHarga = 0;
+    boolean hasSubMenu = false;
+
+    Button btnRincianOrder;
 
     public OrderFragment() {
         // Required empty public constructor
@@ -47,14 +51,11 @@ public class OrderFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_order, container, false);
 
-        tvKategori = rootView.findViewById(R.id.tv_kategori);
-        rvKategori = rootView.findViewById(R.id.rv_kategori);
         etSearchProduk = rootView.findViewById(R.id.et_search_produk);
+        tvTotHarga = rootView.findViewById(R.id.tv_tot_harga);
+        btnRincianOrder = rootView.findViewById(R.id.btn_rincian_order);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        rvKategori.setLayoutManager(linearLayoutManager);
-
-        //TODO Search Product
+        //TODO: Search Product
         etSearchProduk.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -66,31 +67,73 @@ public class OrderFragment extends Fragment {
             }
         });
 
-        String[] kategoriProduk = {
-                "Promo",
-                "Semua",
-                "Makanan",
-                "Minuman"
-        };
-
-        kategoriList = new ArrayList<>();
-        for (int i=0; i<kategoriProduk.length; i++) {
-            Kategori kategori = new Kategori(kategoriProduk[i]);
-            kategoriList.add(kategori);
-        }
-
-        KategoriAdapter kategoriAdapter = new KategoriAdapter(kategoriList, getActivity());
-        rvKategori.setAdapter(kategoriAdapter);
+        //TODO: Cek Rincian Order
+        btnRincianOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), RincianOrderActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
 
     }
 
-    //TODO Method HIDE after Search Product
+    //TODO: Tot Harga
+    public void addHarga(int harga){
+        totHarga += harga;
+        tvTotHarga.setText("Rp. " + totHarga);
+    }
+
+    //TODO: Method HIDE after Search Product
     private void performSearch() {
         etSearchProduk.clearFocus();
         InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if (view.findViewById(R.id.frameLayout2) != null) {
+            if (savedInstanceState != null) {
+                return;
+            }
+            OrderMenuFragment orderMenuFragment = new OrderMenuFragment();
+            getChildFragmentManager().beginTransaction().add(R.id.frameLayout2, orderMenuFragment, null).commit();
+        }
+    }
+
+    public void goToOrderSubMenu(int pos, String word){
+        OrderSubMenuFragment orderSubMenuFragment = new OrderSubMenuFragment();
+        //ini akang kurwwn
+        Bundle bundle = new Bundle();
+        if(pos == 0){
+            bundle.putString("key", " Posisi 1");
+
+        }
+        else if (pos == 1){
+            bundle.putString("key", " Posisi 2");
+        }
+        //ini 4
+        bundle.putString("word", word);
+        orderSubMenuFragment.setArguments(bundle);
+        getChildFragmentManager().beginTransaction().replace(R.id.frameLayout2, orderSubMenuFragment).commit();
+        hasSubMenu = true;
+    }
+
+    public void popChildStack(){
+        if(hasSubMenu){
+            hasSubMenu = false;
+            OrderMenuFragment orderMenuFragment = new OrderMenuFragment();
+            getChildFragmentManager().beginTransaction().replace(R.id.frameLayout2, orderMenuFragment, null).commit();
+        }
+    }
+
+    public boolean hasSubMenu(){
+        return this.hasSubMenu;
     }
 
 
