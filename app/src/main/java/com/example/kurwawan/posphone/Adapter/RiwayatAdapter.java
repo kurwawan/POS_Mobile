@@ -37,7 +37,7 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatV
 
     @Override
     public void onBindViewHolder(RiwayatAdapter.RiwayatViewHolder holder, int position) {
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
+//        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
 
     }
 
@@ -51,9 +51,8 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatV
         TextView tvJamRiwayat;
         public RiwayatViewHolder(View itemView) {
             super(itemView);
-
             tvTanggalRiwayat = itemView.findViewById(R.id.tv_tanggal_riwayat);
-            tvJamRiwayat = itemView.findViewById(R.id.tv_jam);
+            tvJamRiwayat = itemView.findViewById(R.id.tv_jam_riwayat);
         }
     }
 }

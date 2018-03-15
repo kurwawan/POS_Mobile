@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 import com.example.kurwawan.posphone.R;
 import com.example.kurwawan.posphone.View.View_Order.OrderFragment;
+import com.example.kurwawan.posphone.View.View_Riwayat.RiwayatFragment;
 
 public class MenuUtamaActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

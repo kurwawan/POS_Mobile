@@ -31,6 +31,25 @@
             android:label="@string/title_activity_menu_utama"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity android:name=".View.View_Order.RincianOrderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".View.MenuUtamaActivity" />
+        </activity>
+
+        <activity android:name=".View.View_Order.RingkasanOrderEditActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".View.View_Order.RincianOrderActivity" />
+        </activity>
+
+        <activity android:name=".View.View_Order.PembayaranActivity" />
+
+        <activity android:name=".View.View_Order.PembayaranKonfirmActivity"></activity>
+
+        <activity android:name=".View.View_Riwayat.RiwayatDetailActivity">
+
+        </activity>
     </application>
 
 </manifest>

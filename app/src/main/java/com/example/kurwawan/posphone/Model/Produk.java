@@ -12,6 +12,8 @@ public class Produk {
     private String namaProduk;
     private String hargaProduk;
 
+    private String jmlProduk;
+
     public Produk() {
 
     }
@@ -20,6 +22,12 @@ public class Produk {
         this.gambarProduk = gambarProduk;
         this.namaProduk = namaProduk;
         this.hargaProduk = hargaProduk;
+    }
+
+    public Produk(String namaProduk, String hargaProduk, String jmlProduk) {
+        this.namaProduk = namaProduk;
+        this.hargaProduk = hargaProduk;
+        this.jmlProduk = jmlProduk;
     }
 
     public int getGambarProduk() {
@@ -44,5 +52,13 @@ public class Produk {
 
     public void setHargaProduk(String hatgaProduk) {
         this.hargaProduk = hatgaProduk;
+    }
+
+    public String getJmlProduk() {
+        return jmlProduk;
+    }
+
+    public void setJmlProduk(String jmlProduk) {
+        this.jmlProduk = jmlProduk;
     }
 }

@@ -15,10 +15,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kurwawan.posphone.View.MenuUtamaActivity;
-import com.example.kurwawan.posphone.View.View_Order.OrderMenuFragment;
-import com.example.kurwawan.posphone.View.View_Order.OrderSubMenuFragment;
 import com.example.kurwawan.posphone.R;
 
 
@@ -68,8 +67,12 @@ public class OrderFragment extends Fragment {
         btnRincianOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), RincianOrderActivity.class);
-//                startActivity(intent);
+                if (tvTotHarga.equals(null)) { //BELUM BISA
+                    Toast.makeText(getActivity(), "Lakukan Order", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(getActivity(), RincianOrderActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 

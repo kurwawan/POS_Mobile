@@ -42,6 +42,7 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
     @Override
     public void onBindViewHolder(ProdukAdapter.ProdukViewHolder holder, final int position) {
         holder.imgProduk.setImageResource(produkList.get(position).getGambarProduk());
+
         holder.tvNamaPoduk.setText(produkList.get(position).getNamaProduk());
         holder.tvHargaProduk.setText(produkList.get(position).getHargaProduk());
 
@@ -49,6 +50,9 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
             @Override
             public void onClick(View view) {
                 mListener.addHarga(Integer.parseInt(produkList.get(position).getHargaProduk()));
+
+
+
             }
         });
     }

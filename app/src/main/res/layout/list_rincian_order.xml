@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_jml_order"
+            android:layout_marginLeft="5dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:background="@drawable/border_jml_pesanan"
+            android:textSize="22sp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_nama_menu_order"
+            android:layout_marginLeft="8dp"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="Mie Ayam"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:fontFamily="sans-serif"
+            android:layout_gravity="center"
+            android:paddingRight="2dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="22sp"
+            android:text="Rp."
+            android:textColor="#000"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_harga_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:paddingLeft="5dp"
+            android:text="80000"
+            android:textColor="#000"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

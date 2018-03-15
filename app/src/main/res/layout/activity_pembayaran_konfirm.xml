@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.example.kurwawan.posphone.View.View_Order.PembayaranKonfirmActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/konfirmasi_pembayaran"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"/>
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_konfirm"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Uang Kembali  :"
+        android:textColor="#000"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="14dp">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="Rp."
+            android:textSize="36sp"
+            android:textColor="#000"
+            android:fontFamily="sans-serif"/>
+        <TextView
+            android:id="@+id/tv_uang_kembali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="36sp"
+            android:textColor="#000"
+            android:fontFamily="sans-serif"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_transaksi_selesai"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="transaksi selesai"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif"
+        android:textColor="#fff"
+        android:background="@drawable/border_btn_default"/>
+
+</LinearLayout>
