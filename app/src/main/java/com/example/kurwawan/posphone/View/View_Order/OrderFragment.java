@@ -17,8 +17,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kurwawan.posphone.Model.Produk;
 import com.example.kurwawan.posphone.View.MenuUtamaActivity;
 import com.example.kurwawan.posphone.R;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -30,6 +36,8 @@ public class OrderFragment extends Fragment {
 
     int totHarga = 0;
     boolean hasSubMenu = false;
+    //Untuk menampung listOrder berdasarkan id(String) produk
+    ArrayList<Produk> listOrder = new ArrayList<>();
 
     Button btnRincianOrder;
 
@@ -71,6 +79,10 @@ public class OrderFragment extends Fragment {
                     Toast.makeText(getActivity(), "Lakukan Order", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(getActivity(), RincianOrderActivity.class);
+                    Gson dataListOrder = new Gson();
+                    // kirim data list order ke list rincian order dalam json String
+                    intent.putExtra("listOrder", dataListOrder.toJson(listOrder));
+                    intent.putExtra("total", totHarga);
                     startActivity(intent);
                 }
             }
@@ -81,8 +93,20 @@ public class OrderFragment extends Fragment {
     }
 
     //TODO: Tot Harga
-    public void addHarga(int harga){
-        totHarga += harga;
+    public void addHarga(Produk produk) {
+        int index = listOrder.indexOf(produk);
+        if(index != -1){
+            String jumlah = listOrder.get(index).getJmlProduk();
+            listOrder.get(index).setJmlProduk("" + (Integer.parseInt(jumlah) + 1));
+        }
+        else {
+            //jika index != -1 maka ada order  produk dengan id sama
+            //ambil jumlah order terakhir untuk produk ini
+            //belum ada order produk dengan id sama
+            produk.setJmlProduk("1");
+            listOrder.add(produk);
+        }
+        totHarga += Integer.parseInt(produk.getHargaProduk());
         tvTotHarga.setText("Rp. " + totHarga);
     }
 
@@ -106,33 +130,22 @@ public class OrderFragment extends Fragment {
         }
     }
 
-    public void goToOrderSubMenu(int pos, String word){
+    //TODO:
+    public void goToOrderSubMenu(int pos, String word) {
         OrderSubMenuFragment orderSubMenuFragment = new OrderSubMenuFragment();
-        //ini akang kurwwn
-        Bundle bundle = new Bundle();
-        if(pos == 0){
-            bundle.putString("key", " Posisi 1");
-
-        }
-        else if (pos == 1){
-            bundle.putString("key", " Posisi 2");
-        }
-        //ini 4
-        bundle.putString("word", word);
-        orderSubMenuFragment.setArguments(bundle);
         getChildFragmentManager().beginTransaction().replace(R.id.frameLayout2, orderSubMenuFragment).commit();
         hasSubMenu = true;
     }
 
-    public void popChildStack(){
-        if(hasSubMenu){
+    public void popChildStack() {
+        if (hasSubMenu) {
             hasSubMenu = false;
             OrderMenuFragment orderMenuFragment = new OrderMenuFragment();
             getChildFragmentManager().beginTransaction().replace(R.id.frameLayout2, orderMenuFragment, null).commit();
         }
     }
 
-    public boolean hasSubMenu(){
+    public boolean hasSubMenu() {
         return this.hasSubMenu;
     }
 

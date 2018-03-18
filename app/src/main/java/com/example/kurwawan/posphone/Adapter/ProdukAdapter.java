@@ -24,7 +24,7 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
     private ParentFragmentListener mListener;
 
     public interface ParentFragmentListener{
-        void addHarga(int harga);
+        void addHarga(Produk produk);
     }
 
     public ProdukAdapter(ArrayList<Produk> produkList, ParentFragmentListener listener) {
@@ -49,10 +49,7 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
         holder.cvProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mListener.addHarga(Integer.parseInt(produkList.get(position).getHargaProduk()));
-
-
-
+                mListener.addHarga(produkList.get(position));
             }
         });
     }

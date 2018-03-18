@@ -38,6 +38,7 @@
         </activity>
 
         <activity android:name=".View.View_Order.RingkasanOrderEditActivity">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".View.View_Order.RincianOrderActivity" />

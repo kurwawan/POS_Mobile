@@ -41,11 +41,6 @@ public class OrderSubMenuFragment extends Fragment implements ProdukAdapter.Pare
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //ini 5
-        Toast toast = Toast.makeText(getContext(), getArguments().getString("word", "NONE WORD"), Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.TOP | Gravity.CENTER , 0, 48);
-        toast.show();
-        Toast.makeText(getContext(), getArguments().getString("key", "NONE"), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -83,7 +78,7 @@ public class OrderSubMenuFragment extends Fragment implements ProdukAdapter.Pare
 
         produkList = new ArrayList<>();
         for (int i = 0; i < namaProduk.length; i++) {
-            Produk produk = new Produk(gambarProduk[i], namaProduk[i], hargaProduk[i]);
+            Produk produk = new Produk(Integer.toString(i),gambarProduk[i], namaProduk[i], hargaProduk[i]);
             produkList.add(produk);
         }
 
@@ -94,10 +89,10 @@ public class OrderSubMenuFragment extends Fragment implements ProdukAdapter.Pare
     }
 
     @Override
-    public void addHarga(int harga) {
+    public void addHarga(Produk produk) {
         Fragment parent = getParentFragment();
         if(parent instanceof OrderFragment){
-            ((OrderFragment) parent).addHarga(harga);
+            ((OrderFragment) parent).addHarga(produk);
         }
     }
 }
